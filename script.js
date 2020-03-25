@@ -6,6 +6,7 @@ const clearAll = document.getElementById("CE");
 const operators = document.getElementsByClassName("operator");
 const equals = document.getElementById("equals");
 const decimal = document.getElementById("decimal");
+const backspace = document.getElementById("backspace");
 
 clearAll.addEventListener("click", function () {
     display.value = "0";
@@ -45,9 +46,24 @@ equals.addEventListener("click", function () {
     if(calcArray[0] == null) {
         return;
     }
+
+    if(calcArray[1] == "/" && calcArray[2] == 0) {
+        return "Nope!";
+    };
+
     calcArray[2] = display.value;
 
     display.value = calculate(calcArray);
+});
+
+backspace.addEventListener("click", function() {
+    if(display.value == 0) return;
+
+    display.value = display.value.substring(0, display.value.length -1);
+    
+    if(display.value.length < 1) {
+        display.value = "0";
+    }
 });
 
 function decimalCheck(n) {

@@ -80,3 +80,7 @@ button:hover {
 .equals:hover {
     background-color: #4e9ed4;
 }
+
+.backspace {
+    grid-area: 5 / 1;
+}
